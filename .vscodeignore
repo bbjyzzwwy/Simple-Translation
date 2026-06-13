@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test/**
+.gitignore
+node_modules/**
+src/**
+tsconfig.json
+webview/**
+**/*.ts
+**/*.map
+.git
+**/*.svg
+claude/**
+.claude/**

@@ -1,0 +1,150 @@
+{
+  "name": "simple-translation",
+  "displayName": "Simple Translation",
+  "description": "Chinese-English mutual translation with hover and sidebar support",
+  "version": "0.1.0",
+  "publisher": "bbjyzzwwy",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "translation",
+    "chinese",
+    "english",
+    "translate",
+    "hover"
+  ],
+  "icon": "media/icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "simple-translation.translateHoverShortcut",
+        "title": "Simple Translation: Translate Selected Text (Shortcut)"
+      },
+      {
+        "command": "simple-translation.openSidebar",
+        "title": "Simple Translation: Open Translation Panel"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "simple-translation.translateHoverShortcut",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t",
+        "when": "editorTextFocus && editorHasSelection"
+      }
+    ],
+    "configuration": {
+      "title": "Simple Translation",
+      "properties": {
+        "simple-translation.hoverMode": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "shortcut"
+          ],
+          "default": "auto",
+          "description": "Hover display mode: 'auto' shows translation on mouse hover, 'shortcut' requires Ctrl+Shift+T (Cmd+Shift+T on Mac)"
+        },
+        "simple-translation.apiEndpoint": {
+          "type": "string",
+          "default": "https://api.mymemory.translated.net/get",
+          "description": "Translation API endpoint URL (MyMemory fallback)"
+        },
+        "simple-translation.deepseekApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "DeepSeek API Key. When set, DeepSeek API is used for translation (high quality, low cost). Get one at https://platform.deepseek.com/api_keys"
+        },
+        "simple-translation.deepseekModel": {
+          "type": "string",
+          "default": "deepseek-chat",
+          "description": "DeepSeek model to use for translation. Options: deepseek-chat, deepseek-v4-flash, deepseek-v4-pro"
+        },
+        "simple-translation.youdaoAppId": {
+          "type": "string",
+          "default": "",
+          "description": "有道应用ID。前往 https://ai.youdao.com/ 注册获取"
+        },
+        "simple-translation.youdaoAppSecret": {
+          "type": "string",
+          "default": "",
+          "description": "有道应用密钥"
+        },
+        "simple-translation.youdaoVoice": {
+          "type": "string",
+          "default": "youxiaoying",
+          "enum": ["youxiaomei", "youxiaoying", "youxiaowei", "youxiaoguan", "youyating", "Saila", "Auriana", "youxiaodao"],
+          "description": "Youdao TTS voice. youxiaomei/youyating (US female), youxiaoying/Saila (UK female), youxiaoguan (UK male)"
+        },
+        "simple-translation.defaultFrom": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "zh",
+            "en"
+          ],
+          "default": "auto",
+          "description": "Default source language ('auto' for auto-detection)"
+        },
+        "simple-translation.defaultTo": {
+          "type": "string",
+          "enum": [
+            "zh",
+            "en"
+          ],
+          "default": "zh",
+          "description": "Default target language"
+        },
+        "simple-translation.ttsVoice": {
+          "type": "string",
+          "default": "",
+          "description": "Preferred TTS voice name (empty = auto-select English voice)"
+        },
+        "simple-translation.hoverPanelWidth": {
+          "type": "number",
+          "default": 420,
+          "description": "Width in pixels of the shortcut-triggered hover translation panel"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "simple-translation-sidebar",
+          "title": "Simple Translation",
+          "icon": "media/sidebar-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "simple-translation-sidebar": [
+        {
+          "type": "webview",
+          "id": "simple-translation.sidebarView",
+          "name": "Translation Panel"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --allow-missing-repository --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0"
+  }
+}
