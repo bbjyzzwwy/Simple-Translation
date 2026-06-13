@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bbjyzzwwy/Simple-Translation/master/media/icon.png" alt="Logo" width="128" height="128">
+  <img src="https://raw.githubusercontent.com/bbjyzzwwy/Simple-Translation/main/media/icon.png" alt="Logo" width="128" height="128">
 </p>
 
 <h1 align="center">Simple Translation</h1>
@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/bbjyzzwwy/Simple-Translation/blob/master/README.md">English</a> |
-  <a href="https://github.com/bbjyzzwwy/Simple-Translation/blob/master/README.zh.md">中文</a>
+  <a href="https://github.com/bbjyzzwwy/Simple-Translation/blob/main/README.md">English</a> |
+  <a href="https://github.com/bbjyzzwwy/Simple-Translation/blob/main/README.zh.md">中文</a>
 </p>
 
 ---
