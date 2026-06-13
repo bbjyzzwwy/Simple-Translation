@@ -13,6 +13,10 @@
   <a href="https://github.com/bbjyzzwwy/Simple-Translation/blob/main/README.zh.md">中文</a>
 </p>
 
+## Demo
+
+![Demo](https://raw.githubusercontent.com/bbjyzzwwy/Simple-Translation/main/docs/demo.gif)
+
 ---
 
 ## Features

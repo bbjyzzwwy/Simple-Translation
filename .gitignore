@@ -3,3 +3,4 @@ out/
 *.vsix
 AGENTS.md
 CLAUDE.md
+demo-*.gif
