@@ -24,6 +24,12 @@ export function speakText(
             resolve();
             return;
         }
+        // Check playback deps once.
+        if (!checkDeps()) {
+            console.error('[Simple Translation] Missing ffmpeg or pacat. Install: sudo apt install ffmpeg pulseaudio-utils');
+            resolve();
+            return;
+        }
 
         const salt = crypto.randomUUID();
         const curtime = String(Math.floor(Date.now() / 1000));
@@ -97,4 +103,19 @@ export function speakText(
 
 function tryCleanup(file: string): void {
     try { if (fs.existsSync(file)) { fs.unlinkSync(file); } } catch { /* ignore */ }
+}
+
+let _depsOk: boolean | null = null;
+
+function checkDeps(): boolean {
+    if (_depsOk !== null) { return _depsOk; }
+    try {
+        const { execSync } = require('child_process');
+        execSync('which ffmpeg', { stdio: 'ignore' });
+        execSync('which pacat', { stdio: 'ignore' });
+        _depsOk = true;
+    } catch {
+        _depsOk = false;
+    }
+    return _depsOk;
 }

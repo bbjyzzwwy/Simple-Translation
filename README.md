@@ -57,6 +57,12 @@
 ## Requirements
 
 - VS Code `^1.85.0`
+- **Linux only**: `ffmpeg` + `pulseaudio-utils` for TTS playback
+
+```bash
+# Ubuntu/Debian
+sudo apt install ffmpeg pulseaudio-utils
+```
 
 ## Development
 

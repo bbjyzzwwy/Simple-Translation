@@ -57,6 +57,12 @@
 ## 环境要求
 
 - VS Code `^1.85.0`
+- **目前仅支持 Linux**：需要 `ffmpeg` + `pulseaudio-utils` 播放音频
+
+```bash
+# Ubuntu/Debian
+sudo apt install ffmpeg pulseaudio-utils
+```
 
 ## 开发
 
