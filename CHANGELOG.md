@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 (2026-06-14)
+
+- Add system dependency check for ffmpeg + pacat (TTS playback)
+- Add README install guide for required dependencies
+
 ## 0.1.0 (2026-06-14)
 
 ### ✨ Features

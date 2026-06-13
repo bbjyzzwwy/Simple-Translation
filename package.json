@@ -2,7 +2,7 @@
   "name": "simple-translation",
   "displayName": "Simple Translation",
   "description": "Chinese-English mutual translation with hover and sidebar support",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "bbjyzzwwy",
   "license": "MIT",
   "engines": {
