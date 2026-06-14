@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 (2026-06-14)
+
+- Fix sidebar panel incorrectly entering dictionary mode for Chinese sentences (now only 1–4 character Chinese words use dictionary mode)
+
 ## 0.1.1 (2026-06-14)
 
 - Add system dependency check for ffmpeg + pacat (TTS playback)

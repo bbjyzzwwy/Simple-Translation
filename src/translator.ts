@@ -20,10 +20,10 @@ export async function translate(
     }
 
     if (settings.deepseekApiKey) {
-        // CJK: single-word if ≤ 4 characters (no spaces in Chinese).
-        // Non-CJK: single-word if no spaces and ≤ 50 chars.
-        const isCJK = /^[一-鿿]{1,4}$/.test(text) || /^[^一-鿿]{1,50}$/.test(text) && !text.includes(' ');
-        const isSingleWord = text.length <= 4 ? isCJK : (!text.includes(' ') && text.length <= 50);
+        // Chinese: single-word only if 1–4 CJK characters.
+        // Non-CJK (English etc.): single-word if no spaces and ≤ 50 chars.
+        const isSingleWord = /^[一-鿿]{1,4}$/.test(text) ||
+            (!text.includes(' ') && text.length <= 50 && !/[一-鿿]/.test(text));
         const result = await deepseekTranslate(text, sourceLang, targetLang, settings.deepseekApiKey, settings.deepseekModel, isSingleWord);
         if (result !== null) {
             return result;
